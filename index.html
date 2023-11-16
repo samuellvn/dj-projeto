@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>quadro de avisos</title>
+	<title>APP WEB DJ COM IA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -9,22 +10,36 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
   <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+  
+</head>
 <body>
 <center>
-  <h3 class="btn btn-success heading">Alterando largura, altura e posição do quadrado em Tempo Real
-    <br>
-    <span class="note">OBSERVAÇÃO: Aproxime os pulsos esquerdo e direito para reduzir
-      o tamanho da fonte e os afaste para aumentar o tamanho.</span>
-    <br>
-      <span id="quadrado"></span>
-  </h3>
+	<h3 class="btn btn-success heading">APP WEB DJ COM IA
+	    <br>
+	    <span class="note">OBSERVAÇÃO: Mova seu pulso esquerdo para cima e para baixo para controlar o volume.
+			 Mova seu pulso direito para trocar a musica.</span>
+  	</h3>  
+
+	<div class="div_speed">
+		<br>
+		<h3 class="btn btn-warning" id="speed">Velocidade</h3>
+	</div>
+
+	<div class="div_volume">
+		<br>
+		<h3 class="btn btn-warning" id="volume">Volume</h3>
+	</div>
+
+	<br><br>
+
+	<button onclick="play();" class="btn btn-success play_button">Reproduzir</button>
+
 </center>
-  <div class="rodape">desenvolvido po samuel</div>
+
 <script src="main.js"></script>
 </body>
 </html>
-
-
