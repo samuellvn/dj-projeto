@@ -1,7 +1,6 @@
 var musica_play1;
 var musica_play2;
 
-
 var canvas;
 var video;
 var musica;
@@ -11,7 +10,6 @@ var pulso_esqX=0;
 var pulso_esqY=0;
 var pulso_dirX=0;
 var pulso_dirY=0;
-
 var score_pulso_esq=0;
 var score_pulso_dir=0;
 
@@ -55,9 +53,6 @@ function model_loaded(){
 
 function play(){
     musica.play();
-    musica.setVolume(1);
-    musica.rate(1);
-
 }
 
 function draw(){
@@ -65,13 +60,14 @@ function draw(){
     fill("red");
     stroke("red");
     
-    //if(score_pulso_esq>0.2){
-        console.log("entrou");
+    if(score_pulso_esq>0.2){
+        console.log("entrou1");
         circle(pulso_esqX, pulso_esqY, 20);
         var numero_pulso_esq=Number(pulso_esqY);
-        var remove_decimais=floor(numero_pulso_esq);
-        var volume=remove_decimais/500;
-        document.getElementById("volume").innerHTML="volume: "+volume;
-        musica.setVolume(volume);
-    //}
+        musica_play1.play();
+    } else{
+        circle(pulso_esqX, pulso_esqY, 20);
+        var numero_pulso_dir=Number(pulso_dirY);
+        musica_play1.play();
+    }
 }
