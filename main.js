@@ -1,6 +1,8 @@
 var musica_play1;
 var musica_play2;
 
+var music1_status="";
+var music2_status="";
 var canvas;
 var video;
 var musica;
@@ -31,7 +33,7 @@ function got_poses(results){
     if(results.length>0){
         console.log(results);
         score_pulso_esq=results[0].pose.keypoints[9].score;
-        
+        score_pulso_dir=results[0].pose.keypoints[10].score;
 
         pulso_esqX=results[0].pose.leftWrist.x;
         pulso_esqY=results[0].pose.leftWrist.y;
@@ -51,23 +53,39 @@ function model_loaded(){
     console.log("pose net foi carregado");
 }
 
-function play(){
-    musica.play();
-}
+
 
 function draw(){
     image(video, 0, 0, 600, 500);
     fill("red");
     stroke("red");
+
+    music1_status=musica_play1.isPlaying();
+    music2_status=musica_play2.isPlaying();
     
     if(score_pulso_esq>0.2){
         console.log("entrou1");
         circle(pulso_esqX, pulso_esqY, 20);
-        var numero_pulso_esq=Number(pulso_esqY);
-        musica_play1.play();
-    } else{
-        circle(pulso_esqX, pulso_esqY, 20);
-        var numero_pulso_dir=Number(pulso_dirY);
-        musica_play1.play();
+        musica_play1.stop();
+
+        if(music2_status==false){
+            musica_play2.play();
+            document.getElementById("musica").innerHTML="tocando musica peter pan";
+        }
     }
+    if(score_pulso_dir>0.2){
+        console.log("entrou1");
+        circle(pulso_dirX, pulso_dirY, 20);
+        musica_play2.stop();
+
+        if(music1_status==false){
+            musica_play1.play();
+            document.getElementById("musica").innerHTML="tocando musica do harry potter";
+        }
+    }
+}
+function play(){
+    song.play();
+    song.setVolume(1);
+    song.rate(1);
 }
